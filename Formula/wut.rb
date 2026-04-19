@@ -5,21 +5,21 @@
 class Wut < Formula
   desc "Route accidental natural-language shell input to your AI harness"
   homepage "https://github.com/sonyabytes/wut"
-  version "0.6.2"
+  version "0.6.3"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/sonyabytes/wut/releases/download/v0.6.2/wut_Darwin_x86_64.tar.gz"
-      sha256 "cbfdd84941454377860751f5d52d67a7639dc046c3650cdbb47aca9cf1317158"
+      url "https://github.com/sonyabytes/wut/releases/download/v0.6.3/wut_Darwin_x86_64.tar.gz"
+      sha256 "e2513498427bcfaeb451f03c756d780d9cd36c560ffe38f0bfbbaf8aa3fb5b9a"
 
       define_method(:install) do
         bin.install "wut"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/sonyabytes/wut/releases/download/v0.6.2/wut_Darwin_arm64.tar.gz"
-      sha256 "e73b95c7f289132e6e9b45c791e4facbbbddb8e30732092cd33c2b282fcb5c3b"
+      url "https://github.com/sonyabytes/wut/releases/download/v0.6.3/wut_Darwin_arm64.tar.gz"
+      sha256 "cb8a277fea644fb5e910bf5726dd25363a57eb9a2195870acdcdc1f35ade2df4"
 
       define_method(:install) do
         bin.install "wut"
@@ -29,19 +29,31 @@ class Wut < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sonyabytes/wut/releases/download/v0.6.2/wut_Linux_x86_64.tar.gz"
-      sha256 "bcea51f6c922d8fb7019e61455c2e4ae9a784496f82ba34464d819a306a5fbc3"
+      url "https://github.com/sonyabytes/wut/releases/download/v0.6.3/wut_Linux_x86_64.tar.gz"
+      sha256 "67c4038bedba132e5fc776d6cc06e165e53bdc362bee1fe1bd4391dd31d76902"
       define_method(:install) do
         bin.install "wut"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sonyabytes/wut/releases/download/v0.6.2/wut_Linux_arm64.tar.gz"
-      sha256 "224d6a9c1f50354792adafd5ce988db580e1160f9b545954ae7cbe1e06f33497"
+      url "https://github.com/sonyabytes/wut/releases/download/v0.6.3/wut_Linux_arm64.tar.gz"
+      sha256 "6c11c75b209e381e8b377c8ac2fba4282ccac48d0933f877126e934457c073c6"
       define_method(:install) do
         bin.install "wut"
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      Finish setup:
+        wut setup          # pick harness + default mode
+        wut install-hook   # wire the shell hook into your rc file
+        wut doctor         # sanity-check the config
+
+      Or, if you prefer to print the hook snippet and source it yourself:
+        eval "$(wut init zsh)"    # bash / fish also supported
+    EOS
   end
 
   test do
