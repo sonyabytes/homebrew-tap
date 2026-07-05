@@ -5,22 +5,22 @@
 class GitWt < Formula
   desc "Agent-friendly git worktrees: pre-provisioned via copy-on-write, one naming convention"
   homepage "https://github.com/sonyabytes/git-wt"
-  version "0.1.1"
+  version "0.1.2"
 
   depends_on "git"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/sonyabytes/git-wt/releases/download/v0.1.1/git-wt_0.1.1_darwin_amd64.tar.gz"
-      sha256 "cea5a22f271c978a2fdcb5a5f8ee9c5901f3a17a4049836425477dc47abd5acb"
+      url "https://github.com/sonyabytes/git-wt/releases/download/v0.1.2/git-wt_0.1.2_darwin_amd64.tar.gz"
+      sha256 "7242b1e5c764ce807f3d544d476d1ca7391f2998c4280ed5653525d25240f829"
 
       define_method(:install) do
         bin.install "git-wt"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/sonyabytes/git-wt/releases/download/v0.1.1/git-wt_0.1.1_darwin_arm64.tar.gz"
-      sha256 "81faf1352b2faf8bf4a23e7fa7eb2dda25f8999708eaf1d79e782d31a18d4a9c"
+      url "https://github.com/sonyabytes/git-wt/releases/download/v0.1.2/git-wt_0.1.2_darwin_arm64.tar.gz"
+      sha256 "cf4a36bacc9a962f65b5a8e9f393f5e664e2907e3cfe5290c3c58c2d3d81786e"
 
       define_method(:install) do
         bin.install "git-wt"
@@ -30,15 +30,15 @@ class GitWt < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sonyabytes/git-wt/releases/download/v0.1.1/git-wt_0.1.1_linux_amd64.tar.gz"
-      sha256 "1ad7d734569628d94fbcfd97de9cee36992f7643d6c039048158e6f055cf097c"
+      url "https://github.com/sonyabytes/git-wt/releases/download/v0.1.2/git-wt_0.1.2_linux_amd64.tar.gz"
+      sha256 "e9b4a5961a39dd4bea7d57c6a01f09472cf859ea3756c6684754be278a7cf2fd"
       define_method(:install) do
         bin.install "git-wt"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/sonyabytes/git-wt/releases/download/v0.1.1/git-wt_0.1.1_linux_arm64.tar.gz"
-      sha256 "121eca52c27eb0f5bf478a3408f73b92048fbce3ba531d0ace5ca1bf6ced7299"
+      url "https://github.com/sonyabytes/git-wt/releases/download/v0.1.2/git-wt_0.1.2_linux_arm64.tar.gz"
+      sha256 "fd4edd44ff92eb168b7575bcdc133ab9d08f3884887d52e7eab6853caa1e1b06"
       define_method(:install) do
         bin.install "git-wt"
       end
